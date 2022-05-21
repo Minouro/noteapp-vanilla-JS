@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="style.css">
+    <title>TCC</title>
+</head>
+
+<body>
+    <div class="background container"></div>
+    
+    <div class="alertbox"><button class="changecolor"><svg id="bucket" style="width:30px;height:30px" viewBox="0 0 24 24">
+                <path fill="currentColor"
+                    d="M8 3C5.79 3 4 4.79 4 7V14C4 15.1 4.9 16 6 16H9V20C9 21.1 9.9 22 11 22H13C14.1 22 15 21.1 15 20V16H18C19.1 16 20 15.1 20 14V3H8M8 5H12V7H14V5H15V9H17V5H18V10H6V7C6 5.9 6.9 5 8 5M6 14V12H18V14H6Z" />
+            </svg></button><button class="delete"><svg id="trash" style="width:30px;height:30px" viewBox="0 0 24 24">
+                <path fill="currentColor"
+                    d="M9,3V4H4V6H5V19A2,2 0 0,0 7,21H17A2,2 0 0,0 19,19V6H20V4H15V3H9M9,8H11V17H9V8M13,8H15V17H13V8Z" />
+            </svg></button></div>
+    <div class="perspective">
+        <div id="bar">
+            <button id="add" class="btnborder"></button>
+            <div id="create" class="displaynone">
+                <div class="create">
+
+                </div>
+                <div id="color">
+                    <label for="red">
+                        <div class="red radio"></div>
+                    </label><input type="radio" name="color" value="red" id="red">
+                    <label for="blue">
+                        <div class="blue radio"></div>
+                    </label><input type="radio" name="color" value="blue" id="blue">
+                    <label for="green">
+                        <div class="green radio"></div>
+                    </label><input type="radio" name="color" value="green" id="green">
+                    <label for="purple">
+                        <div class="purple radio"></div>
+                    </label><input type="radio" name="color" value="purple" id="purple">
+                    <label for="yellow">
+                        <div class="yellow radio"></div>
+                    </label><input type="radio" name="color" value="yellow" id="yellow">
+                    <label for="orange">
+                        <div class="orange radio"></div>
+                    </label><input type="radio" name="color" value="orange" id="orange">
+                </div>
+            </div>
+
+            <div id="resize"></div>
+            <span class="material-symbols-outlined home">
+                house
+            </span>
+            <div class="postites">
+                <div class="list container">
+
+
+                </div>
+            </div>
+            <div id="scroll">
+                <div class="left"></div>
+                <div class="right"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
