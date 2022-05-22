@@ -54,6 +54,7 @@ body{
     align-items: center;
     width: 100vw;
     height: 100vh;
+    perspective: 1000px;
     z-index: 0;
 }
 
@@ -296,7 +297,6 @@ body{
     flex-shrink: 0;
     pointer-events: auto;
     z-index: 2;
-    transition: transform 0.2s ease-in-out;
 }
 
 .postite input{
@@ -323,10 +323,10 @@ body{
     cursor: default;
 }
 
-
-/*.list .postite:hover{
-    animation: raimbow 0.7s ease-in-out infinite;
-}*/
+.background .postite{
+    transform-style: preserve-3d;
+    transform: rotateX(20deg) translateZ(-100px);
+}
 
 .title{
     height: 35px;

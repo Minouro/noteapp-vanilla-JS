@@ -211,7 +211,7 @@ getPostites().forEach((postites) => {
 
         deleted.addEventListener("click", remove)
     })
-    color.addEventListener("click", () => {chooseColor(title, postites, color)})
+    color.addEventListener("click", () => { chooseColor(title, postites, color) })
     function remove() {
         Background.appendChild(alertbox)
         alertbox.style.display = "none"
@@ -228,7 +228,7 @@ getPostites().forEach((postites) => {
         if (!pressed) {
             alertbox.style.display = "none"
         }
-        
+
         pressed = false
     })
     Postites.appendChild(postite)
@@ -282,7 +282,6 @@ function addPostite() {
 
     radioButtons.forEach(btn => {
         btn.addEventListener("click", () => {
-            getPostites()
             if (btn.checked) {
                 selectedColor = btn.value
                 postiteObject.color = `var(--${selectedColor})`
@@ -307,7 +306,7 @@ function addPostite() {
             color.style.backgroundColor = title.style.backgroundColor
             postite.insertBefore(alertbox, title)
         }
-        
+
         deleted.addEventListener("click", remove)
         function remove() {
             Background.appendChild(alertbox)
@@ -316,7 +315,7 @@ function addPostite() {
             deleted.removeEventListener("click", remove)
         }
     })
-    color.addEventListener("click", () => {chooseColor(title, postiteObject, color)})
+    color.addEventListener("click", () => { chooseColor(title, postiteObject, color) })
     alertbox.addEventListener("click", () => {
         pressed = true
 
@@ -336,6 +335,7 @@ function addPostite() {
         setTimeout(() => { Create.classList.add("displaynone") }, 0)
         postite.addEventListener("dragend", () => {
             AddBtn.addEventListener("click", addPostite)
+            Postites.style.width = adjustWidth()
             updatePostiteHead(postiteObject.id, head.value)
             updatePostiteBody(postiteObject.id, body.value)
         })
@@ -399,7 +399,7 @@ function updateColor(id, newColor) {
     savePostites(postites);
 }
 
-function chooseColor(title, postites, color){
+function chooseColor(title, postites, color) {
     switch (title.style.backgroundColor) {
         case "var(--red)":
             postites.color = "var(--blue)"
@@ -420,7 +420,6 @@ function chooseColor(title, postites, color){
             postites.color = "var(--red)"
             break;
     }
-    console.log(postites.color)
     title.style.backgroundColor = postites.color
     color.style.backgroundColor = postites.color
     updateColor(postites.id, postites.color)
@@ -455,7 +454,7 @@ function beDraggable() {
             } else {
                 space.insertBefore(draggable, afterElement)
             }
-        }, true)
+        })
     })
 
     function getDragAfterElement(container, x) {
@@ -491,36 +490,41 @@ Left.addEventListener("mouseover", () => {
 })
 
 
+Postites.style.width = adjustWidth()
+
 function move(element, direction) {
     let id = null
     let over = true
-    Postites.style.width = adjustWidth()
+    let displaywidth = document.querySelector(".postites").offsetWidth
     clearInterval(id)
     id = setInterval(move, 1)
     element.addEventListener("mouseleave", () => { over = false })
-    function move() {
-        if (!over) {
-            clearInterval(id)
-            element.removeEventListener("mouseleave", () => { over = false })
-        } else {
-            if (direction == "right") {
-                left -= 4
-                margin = left * -1 + view.offsetWidth - 70
-                Postites.style.left = left + "px"
-                if (margin >= Postites.offsetWidth) {
-                    left = Postites.offsetWidth * -1 + view.offsetWidth - 70
-                    element.removeEventListener("mouseleave", () => { over = false })
-                }
-            } else if (direction == "left") {
-                left += 4
-                Postites.style.left = left + "px"
-                if (left > 0) {
-                    left = 0
-                    element.removeEventListener("mouseleave", () => { over = false })
+    if(Postites.offsetWidth < displaywidth){
+    Postites.style.width = "auto"
+    }
+        function move() {
+            if (!over || Postites.offsetWidth < displaywidth) {
+                clearInterval(id)
+                element.removeEventListener("mouseleave", () => { over = false })
+            } else {
+                if (direction == "right") {
+                    left -= 4
+                    margin = left * -1 + view.offsetWidth - 70
+                    Postites.style.left = left + "px"
+                    if (margin >= Postites.offsetWidth) {
+                        left = Postites.offsetWidth * -1 + view.offsetWidth - 70
+                        element.removeEventListener("mouseleave", () => { over = false })
+                    }
+                } else if (direction == "left") {
+                    left += 4
+                    Postites.style.left = left + "px"
+                    if (left > 0) {
+                        left = 0
+                        element.removeEventListener("mouseleave", () => { over = false })
+                    }
                 }
             }
         }
-    }
 }
 
 function adjustWidth() {
