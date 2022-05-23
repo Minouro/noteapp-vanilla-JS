@@ -263,9 +263,9 @@ function addPostite() {
     postite.classList.add("postite")
     postite.classList.add("draggable")
     postite.setAttribute("draggable", "true")
+    postite.classList.add("new")
     const title = document.createElement("div")
     title.classList.add("title")
-    title.classList.add("new")
     title.style.backgroundColor = postiteObject.color
     const head = document.createElement("input")
     head.value = postiteObject.header
@@ -291,7 +291,7 @@ function addPostite() {
             AddBtn.style.backgroundColor = "var(--" + selectedColor + "button)"
             AddBtn.style.boxShadow = " 5px 0px var(--" + selectedColor + "buttonshadow)"
 
-            if (title.classList == "title new") {
+            if (postite.classList[2] == "new") {
                 title.style.backgroundColor = postiteObject.color
             }
             savePostites(postites)
@@ -299,7 +299,7 @@ function addPostite() {
     })
     let pressed
     postite.addEventListener("dblclick", () => {
-        if (title.classList != "title new") {
+        if (postite.classList[2] != "new") {
             alertbox.style.display = "flex"
             color.appendChild(bucket)
             deleted.appendChild(trash)
@@ -330,11 +330,9 @@ function addPostite() {
 
 
     postite.addEventListener("dragstart", () => {
-        title.classList.remove("new")
         AddBtn.classList.toggle("btnborder")
         setTimeout(() => { Create.classList.add("displaynone") }, 0)
         postite.addEventListener("dragend", () => {
-            AddBtn.addEventListener("click", addPostite)
             Postites.style.width = adjustWidth()
             updatePostiteHead(postiteObject.id, head.value)
             updatePostiteBody(postiteObject.id, body.value)
@@ -451,8 +449,16 @@ function beDraggable() {
             const draggable = document.querySelector(".dragging")
             if (afterElement == null) {
                 space.appendChild(draggable)
+                if (draggable.classList[2] == "new") {
+                    AddBtn.addEventListener("click", addPostite)
+                    draggable.classList.remove("new")
+                }
             } else {
                 space.insertBefore(draggable, afterElement)
+                if (draggable.classList[2] == "new") {
+                    AddBtn.addEventListener("click", addPostite)
+                    draggable.classList.remove("new")
+                }
             }
         })
     })
@@ -499,32 +505,32 @@ function move(element, direction) {
     clearInterval(id)
     id = setInterval(move, 1)
     element.addEventListener("mouseleave", () => { over = false })
-    if(Postites.offsetWidth < displaywidth){
-    Postites.style.width = "auto"
+    if (Postites.offsetWidth < displaywidth) {
+        Postites.style.width = "auto"
     }
-        function move() {
-            if (!over || Postites.offsetWidth < displaywidth) {
-                clearInterval(id)
-                element.removeEventListener("mouseleave", () => { over = false })
-            } else {
-                if (direction == "right") {
-                    left -= 4
-                    margin = left * -1 + view.offsetWidth - 70
-                    Postites.style.left = left + "px"
-                    if (margin >= Postites.offsetWidth) {
-                        left = Postites.offsetWidth * -1 + view.offsetWidth - 70
-                        element.removeEventListener("mouseleave", () => { over = false })
-                    }
-                } else if (direction == "left") {
-                    left += 4
-                    Postites.style.left = left + "px"
-                    if (left > 0) {
-                        left = 0
-                        element.removeEventListener("mouseleave", () => { over = false })
-                    }
+    function move() {
+        if (!over || Postites.offsetWidth < displaywidth) {
+            clearInterval(id)
+            element.removeEventListener("mouseleave", () => { over = false })
+        } else {
+            if (direction == "right") {
+                left -= 4
+                margin = left * -1 + view.offsetWidth - 70
+                Postites.style.left = left + "px"
+                if (margin >= Postites.offsetWidth) {
+                    left = Postites.offsetWidth * -1 + view.offsetWidth - 70
+                    element.removeEventListener("mouseleave", () => { over = false })
+                }
+            } else if (direction == "left") {
+                left += 4
+                Postites.style.left = left + "px"
+                if (left > 0) {
+                    left = 0
+                    element.removeEventListener("mouseleave", () => { over = false })
                 }
             }
         }
+    }
 }
 
 function adjustWidth() {
