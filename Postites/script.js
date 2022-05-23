@@ -308,14 +308,14 @@ function addPostite() {
         }
 
         deleted.addEventListener("click", remove)
-        function remove() {
-            Background.appendChild(alertbox)
-            alertbox.style.display = "none"
-            deletePostite(postiteObject.id, postite, title, head, body)
-            deleted.removeEventListener("click", remove)
-        }
     })
     color.addEventListener("click", () => { chooseColor(title, postiteObject, color) })
+    function remove() {
+        Background.appendChild(alertbox)
+        alertbox.style.display = "none"
+        deletePostite(postiteObject.id, postite, title, head, body)
+        deleted.removeEventListener("click", remove)
+    }
     alertbox.addEventListener("click", () => {
         pressed = true
 

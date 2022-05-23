@@ -91,8 +91,7 @@ body{
     border-radius: 25px;
     background-color: var(--postite);
     box-shadow: 0px 2px var(--postiteshadow), 0px 0px 3px black;
-    animation: alertbox 0.3s ease-in-out forwards alternate;
-    
+    transform: translateY(-150%);
 }
 
 .alertbox button:hover{
@@ -413,15 +412,4 @@ body{
     100%{
         box-shadow: 0px 3px 2px rgb(226, 61, 80), 3px 3px 2px rgb(254, 51, 132), 3px 0px 2px rgb(130, 43, 252), 3px -3px 2px rgb(56, 129, 233), 0px -3px 2px rgb(81, 240, 157), -3px -3px 2px rgb(241, 238, 70), -3px 0px 2px rgb(240, 102, 38), -3px -3px 2px rgb(231, 64, 42);
     }
-}
-
-@keyframes alertbox {
-    0%{
-    transform: translateY(-50%) scale(0%);
-    }
-
-    100%{
-    transform: translateY(-150%) scale(100%);
-    }
-
 }
