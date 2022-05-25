@@ -49,9 +49,6 @@ body{
 }
 
 .background{
-    display: flex;
-    justify-content: center;
-    align-items: center;
     width: 100vw;
     height: 100vh;
     perspective: 1000px;
@@ -287,7 +284,6 @@ body{
 }
 
 .postite{
-    position: relative;
     width: 280px;
     height: 280px;
     background-color: var(--postite);
@@ -322,11 +318,6 @@ body{
     cursor: default;
 }
 
-.background .postite{
-    transform-style: preserve-3d;
-    transform: rotateX(20deg) translateZ(-100px);
-}
-
 .title{
     height: 35px;
     background-color: var(--red);
@@ -359,22 +350,22 @@ body{
     filter: opacity(0.5);
 }
 
-.right{
+.rightbuttom{
     right: -4.3vw;
 }
 
-.right::after{
+.rightbuttom::after{
     position: absolute;
     content: ">";
     transform: translate(-50%, 90%);
 }
 
-.left{
+.leftbuttom{
     left: -4.3vw;
     margin-left: 70px;
 }
 
-.left::after{
+.leftbuttom::after{
     position: absolute;
     content: "<";
     transform: translate(-50%, 90%);

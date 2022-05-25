@@ -239,6 +239,7 @@ getPostites().forEach((postites) => {
     alertbox.appendChild(color)
     alertbox.appendChild(deleted)
     postite.insertBefore(alertbox, title)
+
 })
 
 function getPostites() {
@@ -430,11 +431,17 @@ AddBtn.addEventListener("click", addPostite)
 function beDraggable() {
     const Draggables = document.querySelectorAll(".draggable")
     const Spaces = document.querySelectorAll(".container")
-
-    console.log()
+    let postiteX
+    let postiteY
     Draggables.forEach(draggable => {
-        draggable.addEventListener("dragstart", () => {
+        draggable.addEventListener("dragstart", (e) => {
             draggable.classList.add("dragging")
+
+            let img = new Image();
+            e.dataTransfer.setDragImage(img, 0, 0);
+
+            postiteX = e.offsetX
+            postiteY = e.offsetY
         })
 
         draggable.addEventListener("dragend", () => {
@@ -460,6 +467,15 @@ function beDraggable() {
                     draggable.classList.remove("new")
                 }
             }
+            if (space.classList[0] == "background") {
+                getPosition(e, draggable, postiteX, postiteY)
+                draggable.style.position = "absolute"
+            } else {
+                draggable.style.position = "relative"
+                draggable.style.left = "0"
+                draggable.style.top = "0"
+                draggable.style.transform = "translate(0)"
+            }
         })
     })
 
@@ -477,11 +493,19 @@ function beDraggable() {
         }, { offset: Number.NEGATIVE_INFINITY }).element
     }
 }
+
+function getPosition(e, postite, postX, postY) {
+    let x = e.clientX
+    let y = e.clientY
+    postite.style.left = x + "px"
+    postite.style.top = y + "px"
+    postite.style.transform = `translate(-${postX}px, -${postY}px)`
+}
 beDraggable()
 
 //Botões Arrastar Direita e Esquerda
-const Right = document.querySelector(".right")
-const Left = document.querySelector(".left")
+const Right = document.querySelector(".rightbuttom")
+const Left = document.querySelector(".leftbuttom")
 const view = document.querySelector(".postites")
 let left = 0
 
