@@ -20,12 +20,12 @@ function resizeBar() {
     let width = AddBtn.offsetWidth
 
     if (starty > y) {
-        Bar.style.height = `${height + 4}px`
-        AddBtn.style.width = `${width - 3}px`
+        Bar.style.height = `${height + 8}px`
+        AddBtn.style.width = `${width - 6}px`
         displayPostites()
     } else if (starty < y) {
-        Bar.style.height = `${height - 4}px`
-        AddBtn.style.width = `${width + 3}px`
+        Bar.style.height = `${height - 8}px`
+        AddBtn.style.width = `${width + 6}px`
         displayPostites()
     }
     if (height > 350) {
@@ -523,9 +523,6 @@ Right.addEventListener("mouseover", () => {
 Left.addEventListener("mouseover", () => {
     move(Left, "left")
 })
-
-
-Postites.style.width = adjustWidth()
 
 function move(element, direction) {
     let id = null
