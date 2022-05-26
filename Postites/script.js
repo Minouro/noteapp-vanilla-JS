@@ -387,6 +387,7 @@ function deletePostite(id, postite, title, head, body) {
     postite.removeChild(body);
     postite.removeChild(title);
     Background.removeChild(postite);
+    Postites.style.width = adjustWidth()
     savePostites(postites);
 }
 
@@ -446,6 +447,7 @@ function beDraggable() {
 
         draggable.addEventListener("dragend", () => {
             draggable.classList.remove("dragging")
+            Postites.style.width = adjustWidth()
         })
     })
 
@@ -494,6 +496,10 @@ function beDraggable() {
     }
 }
 
+beDraggable()
+
+//Posicionar Postites
+
 function getPosition(e, postite, postX, postY) {
     let x = e.clientX
     let y = e.clientY
@@ -501,7 +507,6 @@ function getPosition(e, postite, postX, postY) {
     postite.style.top = y + "px"
     postite.style.transform = `translate(-${postX}px, -${postY}px)`
 }
-beDraggable()
 
 //Botões Arrastar Direita e Esquerda
 const Right = document.querySelector(".rightbuttom")
@@ -558,7 +563,7 @@ function move(element, direction) {
 }
 
 function adjustWidth() {
-    const postite = document.querySelectorAll("div.postite")
+    const postite = document.querySelectorAll(".list .postite")
     const postitearray = []
     postite.forEach(postite => {
         postitearray.push(postite)
