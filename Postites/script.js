@@ -334,7 +334,6 @@ function addPostite() {
         AddBtn.classList.toggle("btnborder")
         setTimeout(() => { Create.classList.add("displaynone") }, 0)
         postite.addEventListener("dragend", () => {
-            Postites.style.width = adjustWidth()
             updatePostiteHead(postiteObject.id, head.value)
             updatePostiteBody(postiteObject.id, body.value)
         })
@@ -509,6 +508,7 @@ function getPosition(e, postite, postX, postY) {
 }
 
 //Botões Arrastar Direita e Esquerda
+
 const Right = document.querySelector(".rightbuttom")
 const Left = document.querySelector(".leftbuttom")
 const view = document.querySelector(".postites")
