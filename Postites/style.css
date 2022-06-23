@@ -21,7 +21,7 @@
     --orangebuttonshadow: rgb(228, 145, 93);
     --barshadow: rgb(134, 135, 177);
     --barsecondshadow: rgb(110, 88, 153);
-    --postite: rgb(236, 243, 248);
+    --postite: rgb(253, 254, 255);
     --postiteshadow: rgb(165, 176, 180);
     --scrollborder: rgb(57, 57, 57);
     --red: rgb(237, 111, 130);
@@ -39,7 +39,6 @@ body{
     width: 100vw;
     height: 100vh;
     overflow: hidden;
-    box-shadow: inset 0px -10px 100px rgb(161, 150, 181);
 }
 
 .perspective{

@@ -567,5 +567,8 @@ function adjustWidth() {
     })
     let length = postitearray.length
     let totallength = `${length * 290}px`
+    if(length >= 5){
     return totallength
+    }
 }
+Postites.style.width = adjustWidth()
