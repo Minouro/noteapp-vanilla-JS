@@ -1,54 +1,19 @@
-*{
+*, *::after, *::before{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     user-select: none;
 }
 
-.intro{
+
+.ball-container{
     display: flex;
     position: relative;
-    width: 100%;
-    height: 105vw;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
-    perspective: 1000px;
-    transform-style: preserve-3d;
-    background-color: rgb(198, 247, 245);
-    filter: hue-rotate(0deg);
-}
-
-.intro h1{
-    font-size: 4.5rem;
-    font-family: 'Poppins', sans-serif;
-    color: white;
-    text-shadow: 0px 0px 3px black;
-}
-
-.intro button{
-    font-size: 2rem;
-    font-family: 'Roboto Slab', serif;
-    border: none;
-    box-shadow: 0px 0px 4px black;
-    color: gray;
-    border-radius: 50px;
-    padding: 6px 60px 6px 60px;
-    margin-bottom: 30px;
-    background-color: white;
-}
-
-.intro button:hover{
-    cursor: pointer;
-}
-
-.content{
-    width: 100%;
     height: 100vh;
-
 }
 
-/*Esfera*/
 .ball{
     position: absolute;
     width: 90vw;
@@ -56,7 +21,6 @@
     box-shadow: inset -5px -5px 20px rgba(164, 202, 226, 0.5), inset -30px -80px 100px rgba(45, 80, 102, 0.5);
     border-radius: 50%;
     bottom: 10;
-    z-index: -2;
     overflow: hidden;
 }
 
@@ -64,7 +28,6 @@
     position: absolute;
     border-radius: 50%;
     filter: opacity(0.5) hue-rotate(300deg);
-    z-index: -1;
 }
 
 .grid{
@@ -73,7 +36,6 @@
     height: 1px;
     box-shadow: 0px 1px rgba(152, 138, 179, 0.5), 0px 3vw rgba(152, 138, 179, 0.5);
     filter: opacity(0.5) hue-rotate(300deg);
-    z-index: -1;
 }
 
 .first{
@@ -198,24 +160,5 @@
 
     100%{
         width: 90vw;
-    }
-}
-
-@media only screen and (min-width: 768px) {
-    .intro{
-        position: fixed;
-        flex-direction: row;
-        gap: 30px;
-        height: 60px;
-        box-shadow: 0px 0px 4px black;
-    }
-
-    .intro h1{
-        font-size: 3.2rem;
-    }
-
-    .intro button{
-        font-size: 1.3rem;
-        margin-bottom: 0;
     }
 }
