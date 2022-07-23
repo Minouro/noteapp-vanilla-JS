@@ -1,164 +1,39 @@
 *, *::after, *::before{
-    margin: 0;
     padding: 0;
+    margin: 0;
     box-sizing: border-box;
-    user-select: none;
 }
 
+.navbar{
+    position: fixed;
+    width: 100vw;
+    height: 50px;
+    box-shadow: 0px 0px 5px rgb(5, 27, 65);
+    background-color: white;
+}
 
-.ball-container{
-    display: flex;
-    position: relative;
-    justify-content: center;
-    align-items: center;
+.navbar h1{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 4rem;
+    color: white;
+    text-shadow: 0px 0px 5px rgb(3, 10, 32);
+}
+
+.navbar button{
+    position: absolute;
+    right: 0;
+    font-size: 1.5rem;
+    width: 200px;
+    height: 100%;
+    background-color: lightblue;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.container{
     height: 100vh;
-}
-
-.ball{
-    position: absolute;
-    width: 90vw;
-    height: 90vw;
-    box-shadow: inset -5px -5px 20px rgba(164, 202, 226, 0.5), inset -30px -80px 100px rgba(45, 80, 102, 0.5);
-    border-radius: 50%;
-    bottom: 10;
-    overflow: hidden;
-}
-
-.mark{
-    position: absolute;
-    border-radius: 50%;
-    filter: opacity(0.5) hue-rotate(300deg);
-}
-
-.grid{
-    position: absolute;
-    width: 90vw;
-    height: 1px;
-    box-shadow: 0px 1px rgba(152, 138, 179, 0.5), 0px 3vw rgba(152, 138, 179, 0.5);
-    filter: opacity(0.5) hue-rotate(300deg);
-}
-
-.first{
-    top: 45vw;
-}
-
-.second{
-    top: 26vw;
-}
-
-.third{
-    top: 63vw;
-}
-
-.fourth{
-    top: 10vw;
-}
-
-.fifth{
-    top: 79vw;
-}
-
-.sixth{
-    top: -1vw
-}
-
-.one{
-    width: 90vw;
-    height: 90vw;
-    box-shadow: inset 2px 0px rgba(152, 138, 179, 0.5);
-    animation: spin1 10s cubic-bezier(0.5, 0.5, 1, 1) infinite;
-}
-
-.two{
-    width: 70vw;
-    height: 90vw;
-    box-shadow: inset 2px 0px rgba(152, 138, 179, 0.5);
-    animation: spin2 10s cubic-bezier(0.5, 0.5, 1, 1) infinite;
-}
-
-.three{
-    width: 40vw;
-    height: 90vw;
-    box-shadow: inset 2px 0px rgba(152, 138, 179, 0.5);
-    animation: spin3 10s cubic-bezier(0.5, 0.5, 1, 1) infinite;
-}
-
-.four{
-    width: 1vw;
-    height: 90vw;
-    box-shadow: inset -2px 0px rgba(152, 138, 179, 0.5);
-    animation: spin4 10s cubic-bezier(0.5, 0.5, 1, 1) infinite;
-}
-
-.five{
-    width: 40vw;
-    height: 90vw;
-    box-shadow: inset -2px 0px rgba(152, 138, 179, 0.5);
-    animation: spin5 10s cubic-bezier(0.5, 0.5, 1, 1) infinite;
-}
-
-.six{
-    width: 70vw;
-    height: 90vw;
-    box-shadow: inset -2px 0px rgba(152, 138, 179, 0.5);
-    animation: spin6 10s cubic-bezier(0.5, 0.5, 1, 1) infinite;
-}
-@keyframes spin1 {
-    0%{
-        width: 90vw;
-    }
-
-    100%{
-        width: 70vw;
-    }
-}
-
-@keyframes spin2 {
-    0%{
-        width: 70vw;
-    }
-
-    100%{
-        width: 40vw;
-    }
-}
-
-@keyframes spin3 {
-    0%{
-        width: 40vw;
-    }
-
-    100%{
-        width: 0.1vw;
-    }
-}
-
-@keyframes spin4 {
-    0%{
-        width: 0.1vw;
-    }
-
-    100%{
-        width: 40vw;
-    }
-}
-
-@keyframes spin5 {
-    0%{
-        width: 40vw;
-    }
-
-    100%{
-        width: 70vw;
-    }
-}
-
-@keyframes spin6 {
-    0%{
-        width: 70vw;
-    }
-
-    100%{
-        width: 90vw;
-    }
+    background-color: lightblue;
 }
