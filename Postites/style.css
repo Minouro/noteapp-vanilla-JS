@@ -6,7 +6,7 @@
 }
 
 :root{
-    --bar: rgb(206, 211, 216);
+    --bar: rgb(245, 246, 250);
     --redbutton: rgb(199, 82, 111);
     --redbuttonshadow: rgb(165, 45, 71);
     --bluebutton: rgb(106, 117, 231);
@@ -19,16 +19,16 @@
     --yellowbuttonshadow: rgb(203, 170, 73);
     --orangebutton: rgb(237, 174, 91);
     --orangebuttonshadow: rgb(228, 145, 93);
-    --barshadow: rgb(134, 135, 177);
-    --barsecondshadow: rgb(110, 88, 153);
+    --barshadow: rgb(198, 198, 202);
+    --barsecondshadow: rgb(142, 139, 150);
     --postite: rgb(253, 254, 255);
     --postiteshadow: rgb(165, 176, 180);
     --scrollborder: rgb(57, 57, 57);
-    --red: rgb(237, 111, 130);
+    --red: rgb(239, 121, 139);
     --blue: rgb(126, 181, 230);
-    --yellow: rgb(243, 227, 124);
-    --orange: rgb(241, 163, 121);
-    --green: rgb(118, 236, 165);
+    --yellow: rgb(244, 230, 140);
+    --orange: rgb(236, 170, 134);
+    --green: rgb(143, 234, 179);
     --purple: rgb(150, 127, 237);
 }
 
@@ -39,6 +39,26 @@ body{
     width: 100vw;
     height: 100vh;
     overflow: hidden;
+}
+
+.navbar{
+    position: fixed;
+    width: 100vw;
+    height: 50px;
+    box-shadow: 0px 3px 0px var(--barshadow), 0px 4px 2px black;
+    background-color: var(--bar);
+    z-index: 1;
+}
+
+.navbar h1{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 3.5rem;
+    font-family: sans-serif;
+    font-style: italic;
+    color: var(--bar);
+    text-shadow: 0px 4px 0px var(--barshadow), 0px 0px 2px black, 0px 5px 2px black;
 }
 
 .perspective{
@@ -254,7 +274,7 @@ body{
     height: 1.2rem;
     margin: 1rem;
     background-color: var(--barshadow);
-    box-shadow: 0 -0.4rem var(--barsecondshadow), inset 0px 3px 5px rgb(64, 31, 78);
+    box-shadow: 0 -0.4rem var(--barsecondshadow), inset 0px 3px 5px rgb(81, 76, 83);
     border-radius: 15px;
     flex-grow: 1;
     z-index: 2;
