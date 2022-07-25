@@ -184,7 +184,7 @@ getPostites().forEach((postites) => {
     head.maxLength = "20"
     const body = document.createElement("textarea")
     body.value = postites.content
-    body.maxLength = "348"
+    body.maxLength = "280"
     title.style.backgroundColor = postites.color
     const alertbox = document.createElement("div")
     alertbox.classList.add("alertbox")
@@ -273,7 +273,7 @@ function addPostite() {
     head.maxLength = "20"
     const body = document.createElement("textarea")
     body.value = postiteObject.content
-    body.maxLength = "348"
+    body.maxLength = "280"
     const alertbox = document.createElement("div")
     alertbox.classList.add("alertbox")
     const color = document.createElement("button")
@@ -572,3 +572,4 @@ function adjustWidth() {
     }
 }
 Postites.style.width = adjustWidth()
+
